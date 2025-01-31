@@ -14,7 +14,38 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
     <!-- Tailwind Css CDN Link -->
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <!-- Animation Script -->
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              keyframes: {
+                typing: {
+                  "0%": {
+                    width: "0%",
+                    visibility: "hidden"
+                  },
+                  "100%": {
+                    width: "100%"
+                  }
+                },
+                blink: {
+                  "50%": {
+                    borderColor: "transparent"
+                  },
+                  "100%": {
+                    borderColor: "white"
+                  }
+                }
+              },
+              animation: {
+                typing: "typing 2s steps(20) infinite alternate, blink .7s infinite"
+              }
+            },
+          },
+          plugins: [],
+        }
+      </script>
     <style>
         .font-sora{
             font-family: 'Sora', sans-serif;
@@ -55,8 +86,12 @@
          <hr class="border-black md:invisible">
         <!-- Banner-Section -->
          <section class="px-3 pt-8 banner lg:px-32">
-            <div >
-                <h1 class="text-[#111111] font-display text-3xl md:text-6xl leading-10">Pamper Your Pet,<br> Because They Deserve<br> the Bes</h1>
+            <div>
+                <div class="w-max">
+                    <h1 class="pr-5 overflow-hidden  font-bold border-r-4 animate-typing whitespace-nowrap border-r-white text-[#111111] font-display text-3xl md:text-6xl leading-10">
+                        Pamper Your Pet,<br> Because They Deserve<br> the Bes
+                    </h1>
+                  </div>
                 <p class="text-base md:text-xl opacity-70 text-[#111111] my-3 md:my-5 md:w-[672px]">Discover a world of treats, toys, and essentials handpicked for your furry friends. Shop now and make tails wag with joy!</p>
                 <button class="btn cursor-pointer bg-[#FFDC26] text-base rounded-lg py-[10px] px-[30px]">Find a pet</button>
             </div>
@@ -65,7 +100,28 @@
             </div>
          </section>
     </header>
-    <main class="">
+    <main >
+        <!-- Shop Section -->
+         <div class="px-3 lg:px-32">
+            <h2 class="mb-12 text-4xl section-title font-display">Pet Food Shop</h2>
+            <section class="grid grid-cols-1 gap-5 mb-6 shop-section md:grid-cols-2 lg:grid-cols-3">
+                <div class="bg-[url('c1-assets/cats-power.jpg')] bg-right-top bg-no-repeat bg-cover rounded-xl py-16 px-6">
+                    <h1 class="text-4xl text-white font-display">New Cat Food</h1>
+                    <h3 class="mt-4 mb-5 text-2xl text-white">Fresh & Tasty</h3>
+                    <button class="font-bold rounded-full btn">Shop Now</button>
+                </div>
+                <div class="bg-[url('c1-assets/dogs-power.jpg')] bg-right-top bg-no-repeat bg-cover rounded-xl py-16 px-6">
+                    <h1 class="text-4xl text-white font-display">Best For Dogs</h1>
+                    <h3 class="mt-4 mb-5 text-2xl text-white">Delicious & Natural Food</h3>
+                    <button class="font-bold rounded-full btn">Shop Now</button>
+                </div>
+                <div class="bg-[url('c1-assets/birds-power.jpg')] bg-right-top bg-no-repeat bg-cover rounded-xl py-16 px-6">
+                    <h1 class="text-4xl text-white font-display">All For Birds</h1>
+                    <h3 class="mt-4 mb-5 text-2xl text-white">Tasty & Eco</h3>
+                    <button class="font-bold rounded-full btn">Shop Now</button>
+                </div>
+            </section>
+         </div>
         <!-- Category Section -->
         <div class="px-3 lg:px-32">
             <section class="category lg:my-20">
@@ -281,11 +337,11 @@
 
           <!-- Price section -->
           <div class="px-3 lg:px-32">
-            <section class="price lg:mt-20">
+            <section class="price lg:mt-20 ">
                 <h2 class="mb-3 text-2xl lg:text-4xl lg:mb-12 section-title font-display">Everyday low Price</h2>
                 <div class="grid gap-6 md:grid-cols-12">
                     <!-- Pet Grooming Card -->
-                     <div class="bg-[#F7CCFB] md:col-span-7 rounded-lg ps-3 pt-9 pb-0 mb-0">
+                     <div class="bg-gradient-to-r from-[#F8CCFB] to-[#ACD2FD]  md:col-span-7 rounded-lg ps-3 pt-9 pb-0 mb-0">
                         <div class="items-center md:flex md:ps-16">
                             <div>
                                 <h3 class="invisible text-xl text-black md:mb-3 md:visible">Under Price</h3>
@@ -300,7 +356,7 @@
                      </div>
                      
                     <!-- T-Shirt For Dogs -->
-                    <div class="bg-[#F7CCFB] md:col-span-5 rounded-lg ps-3 md:ps-12 pt-9 pb-0 mb-0 ">
+                    <div class="pb-0 mb-0 rounded-lg bg-gradient-to-r from-[#FFF9F4] to-[#F9DF8A] md:col-span-5 ps-3 md:ps-12 pt-9 ">
                         <h2 class="text-2xl text-black font-display">T-Shirt for Dogs</h2>
                         <h2 class="mt-2 text-5xl text-[#FFDC26] font-display">$7.99</h2>
                         <div class="relative left-1/4 -top-4">
@@ -326,7 +382,7 @@
                               <h2 class="card-title font-display text-[#111111]">Get Pawsome News!</h2>
                               <p class="text-[#111111] mt-3 mb-9 md:w-full w-[333px]">Exclusive training tips, ticks, product deals and more.</p>
                               <form action="">
-                                <input class="block w-[312px] h-[42px] ps-3" type="email" name="" id="" placeholder="Enter email...">
+                                <input class="block w-[312px] h-[42px] ps-3 shadow-xl" type="email" name="" id="" placeholder="Enter email...">
                               </form>
                               <div class="mt-7 card-actions">
                                 <button class="btn btn-primary bg-[#FFDC26] border-none text-black hover:text-white">Subscribe</button>
